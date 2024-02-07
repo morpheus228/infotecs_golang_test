@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  todo-app:
+    build: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  db:
+    restart: always
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=qwerty
+    ports:
+      - 5432:5432
